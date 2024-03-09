@@ -1,0 +1,120 @@
+@font-face {
+    font-family: 'Poppins';
+    src: url(./fonts/Poppins/Poppins-Regular.ttf);
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #918787;
+    font-family: 'Poppins', sans-serif;
+    background-image: url('https://source.unsplash.com/1600x900/?city,weather');
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat;
+    font-size: 110%;
+}
+.weather-box{
+    background: rgb(249, 249, 249);
+    color: black;
+    padding: 2em;
+    border-radius: 30px;
+    width: 150%;
+    max-width: 400px;
+    margin: 2em;
+}
+
+.location img{
+    height: 25px;
+    width: 25px;
+    margin-right: 10px;
+    align-items: center;
+}
+
+.location {
+    text-align: center;
+}
+
+.row{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 110% ;
+    font-weight: bold;
+    margin-bottom: 10px;
+    
+   
+}
+
+#liveTime, .searchbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+   
+}
+#liveTime{
+    color: black ;
+    font-weight: bold;
+    font-size: 150%;
+}
+
+.searchbar{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+ 
+}
+
+button{
+    padding: 0.5em 0.4em;
+    border-radius: 80%;
+    color: white;
+    border: none;
+    background: transparent;
+    outline: none;
+    cursor: pointer;
+    height: 50px;
+    width: 50px;
+    font-size: 130%;
+    font-family: inherit;
+    cursor: pointer;
+    margin-left: 5px;
+  
+
+}
+
+button:hover{
+    background: #e4e0e0;
+    transition: 0.1s ease-in-out;
+}
+
+.searchbar .submit img {
+    width: 30px; 
+    height: 30px; 
+}
+.searchbar input{
+    box-sizing: border-box;
+    padding: 0.5em 2em;
+    border-radius: 20px;
+    color: rgb(102, 59, 59);
+    border: none;
+    background: #e4e0e0;
+    outline: none;
+    width: 100%;
+    margin: 1em 0;
+    font-size: 130%;
+    font-family: inherit;
+}
+
+.temperature {
+    font-size: 2em; 
+}
+
+.temperature img {
+    width: 30px; 
+    height: 30px; 
+}

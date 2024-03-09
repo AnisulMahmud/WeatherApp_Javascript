@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather App</title>
+    <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+    
+    <div class="weather-box">
+        <div id="liveTime"></div>
+        <div class="searchbar">
+            <input 
+            type="text" class="search" placeholder="Enter City Name" >
+            <button class="submit"> <img src="./img/search.png"></button>
+        </div>
+
+      
+        <div class="location">
+            <div class="row">
+            <h2 > Weather of  </h2>
+            </div>
+            <div class="row">
+            <div class="description">Cloudy</div>
+            </div>
+
+            <div class="row">
+                <div class="temperature"> 10°C</div>
+            </div>
+            
+            <div class="row">
+                <div class="feels-like"> <img src="./img/feels_like.png">Feels Like 10°C</div>
+            </div>
+            
+            <div class="row">
+                <div class="humidity"> <img src="./img/humidity.png"> 10%</div>
+               <div class="wind-speed"> <img src="./img/windspeed.png"> 10km/h</div>
+               <div class="visibility"><img src="./img//visibility.png" alt="">10.0 km/h</div>
+            </div>
+            
+            <div class="row">
+                <div class="rise"><img src="./img/sunrise.png" alt="">09.24 am</div>
+                <div class="set"><img src="./img/sunset.png" alt="">04.55pm</div>
+            </div>
+            
+
+        </div>
+    </div>
+
+
+    <script src="./index.js"></script>
+</body>
+</html>
