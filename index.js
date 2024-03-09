@@ -27,6 +27,23 @@ const apiKey = '23a54643d49faf711fbbd48521054055'
 
 
 // Function to fetch the weather data from the API
+// async function weatherResponse(cityName) {
+//     try {
+//         const geoResponse = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`);
+//         const data = await geoResponse.json();
+//         const lat = data[0].lat;
+//         const lon = data[0].lon;
+
+//         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
+//         const weatherData = await weatherResponse.json();
+
+        
+//         return weatherData;
+//     } catch (error) {
+//         console.log('Error', error);
+//     }
+// }
+
 async function weatherResponse(cityName) {
     try {
         const geoResponse = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`);
@@ -37,7 +54,6 @@ async function weatherResponse(cityName) {
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
         const weatherData = await weatherResponse.json();
 
-        
         return weatherData;
     } catch (error) {
         console.log('Error', error);
