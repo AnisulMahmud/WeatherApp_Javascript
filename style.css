@@ -9,22 +9,23 @@ body{
     align-items: center;
     height: 100vh;
     margin: 0;
-    background-color: #918787;
+    background-color: #f1e8e8;
     font-family: 'Poppins', sans-serif;
-    background-image: url('https://source.unsplash.com/1600x900/?city,weather');
+    /* background-image: url('https://source.unsplash.com/1600x900/?city,weather'); */
     background-size: cover; 
     background-position: center; 
     background-repeat: no-repeat;
     font-size: 110%;
 }
 .weather-box{
-    background: rgb(249, 249, 249);
-    color: black;
-    padding: 2em;
+    background: rgb(182, 182, 206);
+    color: rgb(247, 242, 242);
+    padding: 20px;
     border-radius: 30px;
     width: 150%;
     max-width: 400px;
     margin: 2em;
+    position: relative;
 }
 
 .location img{
@@ -36,7 +37,14 @@ body{
 
 .location {
     text-align: center;
+   
 }
+
+.hidden{
+    display: none;
+}
+
+
 
 .row{
     display: flex;
@@ -45,10 +53,12 @@ body{
     gap: 20px;
     font-size: 110% ;
     font-weight: bold;
-    margin-bottom: 10px;
+    margin-bottom: 5px;
     
    
 }
+
+
 
 #liveTime, .searchbar {
     display: flex;
@@ -57,7 +67,7 @@ body{
    
 }
 #liveTime{
-    color: black ;
+    color: rgb(249, 242, 242) ;
     font-weight: bold;
     font-size: 150%;
 }
@@ -66,6 +76,7 @@ body{
     display: flex;
     justify-content: center;
     align-items: center;
+    position: relative;
  
 }
 
@@ -111,10 +122,81 @@ button:hover{
 }
 
 .temperature {
-    font-size: 2em; 
+    font-size: 1.5em; 
+    display: flex;
 }
 
 .temperature img {
     width: 30px; 
     height: 30px; 
+    
+}
+
+.description {
+    font-size: 1em;
+    text-align: center;
+    font-weight: bolder;
+}
+
+.toggle-container {
+    display: flex;
+    align-items: center; 
+    justify-content: space-between; 
+    width: 60px; 
+    position: absolute;
+    right: -1;
+    top: 29%;
+    font-weight: bolder;
+    margin-top: 10px;
+}
+
+.temp-toggle {
+    appearance: none;
+    outline: none;
+    width: 40px;
+    height: 20px;
+    background-color: #ccc;
+    border-radius: 20px;
+    position: relative;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.temp-toggle:before {
+    content: '';
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border-radius: 50%;
+    transition: left 0.2s;
+}
+
+.temp-toggle:checked {
+    background-color: #cf252d;
+}
+
+.temp-toggle:checked:before {
+    left: 22px;
+}
+
+.temp-toggle:hover {
+    background-color: #b4bbb5;
+}
+
+.temp-toggle:checked:hover {
+    background-color: #8e8484;
+}
+
+.weather-icon{
+    width: 180px;
+    height: 180px;
+    margin-right: 10px;
+}
+
+.feels-like, .humidity, .wind-speed, .visibility, .rise, .set {
+    display: flex;
+    align-items: center; 
 }

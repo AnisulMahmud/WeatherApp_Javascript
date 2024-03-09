@@ -18,10 +18,16 @@
         </div>
 
       
-        <div class="location">
-            <div class="row">
-            <h2 > Weather of  </h2>
+        <div class="location hidden" id="weather-info">
+            <div class="toggle-container">
+                <label for="temp-toggle">°F</label>
+                <input type="checkbox" id="temp-toggle" class="temp-toggle">
             </div>
+
+            <div class="row">
+            <h2 class="country-name"> Weather of  </h2>
+            </div>
+
             <div class="row">
             <div class="description">Cloudy</div>
             </div>
@@ -31,18 +37,18 @@
             </div>
             
             <div class="row">
-                <div class="feels-like"> <img src="./img/feels_like.png">Feels Like 10°C</div>
+                <div class="feels-like"> <img src="./img/feels_like.png"> <span id="feels-like-temp"></span></div>
             </div>
             
             <div class="row">
-                <div class="humidity"> <img src="./img/humidity.png"> 10%</div>
-               <div class="wind-speed"> <img src="./img/windspeed.png"> 10km/h</div>
-               <div class="visibility"><img src="./img//visibility.png" alt="">10.0 km/h</div>
+                <div class="humidity"> <img src="./img/humidity.png"><span id="humidi"></span></div>
+               <div class="wind-speed"> <img src="./img/windspeed.png"><span id="wind"></span></div>
+               <div class="visibility"><img src="./img//visibility.png" ><span id="visible"></span></div>
             </div>
             
             <div class="row">
-                <div class="rise"><img src="./img/sunrise.png" alt="">09.24 am</div>
-                <div class="set"><img src="./img/sunset.png" alt="">04.55pm</div>
+                <div class="rise"><img src="./img/sunrise.png" alt=""> <span id="sunrise"></span></div>
+                <div class="set"><img src="./img/sunset.png" alt=""> <span id="sunset"></span></div>
             </div>
             
 
