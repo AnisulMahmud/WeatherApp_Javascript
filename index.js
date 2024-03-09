@@ -29,7 +29,7 @@ const apiKey = '23a54643d49faf711fbbd48521054055'
 // Function to fetch the weather data from the API
 async function weatherResponse(cityName) {
     try {
-        const geoResponse = await fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`);
+        const geoResponse = await fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${cityName}&limit=1&appid=${apiKey}`);
         const data = await geoResponse.json();
         const lat = data[0].lat;
         const lon = data[0].lon;
