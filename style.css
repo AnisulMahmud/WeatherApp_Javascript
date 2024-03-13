@@ -226,41 +226,22 @@ button:hover{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100px;
+    width: 130px;
     margin-right: 10px;
     padding: 10px;
     background-color: #f7baba;
     border-radius: 10px;
     white-space: nowrap;
     overflow: hidden;
-    max-width: 200px;
+    max-width: 280px;
     flex: 0 0 auto;
 }
 #forecast-info {
     display: flex;
     overflow-x: auto;
-    width: 100%; /* Adjust this value to your needs */
-}
-.column {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-bottom: 10px;
-    font-size: 14px;
-    font-weight: bold;
-    justify-content: center;
-    width: 150px;
+    width: 100%; 
 }
 
-.column img {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
-}
-
-.column span {
-    font-size: 14px;
-}
 
 #hourly-forecast {
     margin-top: 50px;
@@ -269,14 +250,13 @@ button:hover{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px;
-    /* background: rgb(216, 216, 244); */
+    padding: 10px;
     border-radius: 20px;
 }
 
 .hourly-item {
     flex: 0 0 auto;
-    width: 80px;
+    width: 70px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -325,4 +305,64 @@ button:hover{
     width: 40px;
     height: 40px;
     margin-right: 10px;
+}
+
+
+#daily-forecast {
+    margin-top: 50px;
+    overflow-y: auto;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgb(152, 152, 186);
+    border-radius: 20px;
+    max-height: 535px; 
+    width: 130%;
+}
+
+
+
+.daily-item {
+    flex: 0 0 auto;
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 10px;
+    margin-left: 10px;
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    padding: 18px;
+    background-color: #fac9c9;
+    border-radius: 10px;
+}
+
+#daily-forecast::-webkit-scrollbar, 
+#hourly-forecast::-webkit-scrollbar {
+    width: 5px;
+    background: #f1f1f1;
+    border-radius: 10px; 
+}
+
+#daily-forecast::-webkit-scrollbar-track, 
+#hourly-forecast::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 10px; 
+}
+
+#daily-forecast::-webkit-scrollbar-thumb,
+#hourly-forecast::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 10px;
+}
+
+#daily-forecast::-webkit-scrollbar-thumb:hover,
+#hourly-forecast::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }

@@ -16,7 +16,7 @@ function DateTime(){
 
     const final= monthName + ' ' + day + ', ' + finalTime;
     document.getElementById('liveTime').innerHTML = final;
-    
+   
 
 }
 setTimeout(DateTime);
@@ -24,7 +24,12 @@ setTimeout(DateTime);
 
 
 const apiKey = '23a54643d49faf711fbbd48521054055'
+let weatherData = null;
+let forecastData = null;
 
+
+// Default city
+let cityName= 'Tampere';
 
 
 
@@ -38,10 +43,7 @@ async function weatherResponse(cityName) {
 
         const weatherResponse = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}`);
         const weatherData = await weatherResponse.json();
-        console.log(weatherData);
-        const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`);
-        const forecastData = await forecastResponse.json();
-        // updateForecast(forecastData);
+      
 
         return weatherData;
     } catch (error) {
@@ -62,8 +64,11 @@ async function forecastResponse(cityName) {
 
         const forecastResponse = await fetch(`https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}`);
         const forecastData = await forecastResponse.json();
-        console.log(forecastData);
 
+       
+
+        
+             
         return forecastData;
     } catch (error) {
         console.log('Error', error);
@@ -71,18 +76,16 @@ async function forecastResponse(cityName) {
 }
 
 
-let weatherData = null;
-let forecastData = null;
 
-// Default city
-let cityName= 'Tampere';
-// weatherResponse(cityName);
-// forecastData= await forecastResponse(cityName);
-// document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${cityName}')`;
+
+
+// Fetch the weather data for the default city
 (async function() {
+    
     weatherData = await weatherResponse(cityName);
-    // forecastData = await forecastResponse(cityName);
+    
     document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${cityName}')`;
+   
 })();
 
 // Event listener for the search button
@@ -90,14 +93,19 @@ document.querySelector('.submit').addEventListener('click', async function() {
     cityName = document.querySelector('.search').value; 
     weatherData = await weatherResponse(cityName); 
     forecastData = await forecastResponse(cityName);
-    console.log(weatherData);
+  
+    
     
     // for updating the background image with the city name
     document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${cityName}')`;
     updateTemperature();
     updateForecast(forecastData);
+    dailyForecast(forecastData);
+
     document.querySelector('#weather-info').classList.remove('hidden');
     document.querySelector('#hourly-forecast').classList.remove('hidden');
+  
+    document.querySelector('#weather-info-right').classList.remove('hidden');
 });
 
 // Event listener for the  enter key
@@ -107,15 +115,17 @@ document.querySelector('.search').addEventListener('keypress', async function(ev
         cityName = document.querySelector('.search').value; 
         weatherData = await weatherResponse(cityName); 
         forecastData = await forecastResponse(cityName);
-        console.log(weatherData);
-        
+
         // for updating the background image with the city name
         document.body.style.backgroundImage = `url('https://source.unsplash.com/1600x900/?${cityName}')`;
         updateTemperature();
         updateForecast(forecastData);
+        dailyForecast(forecastData);
+
 
         document.querySelector('#weather-info').classList.remove('hidden');
         document.querySelector('#hourly-forecast').classList.remove('hidden');
+        document.querySelector('#weather-info-right').classList.remove('hidden');
     }
 })
 
@@ -125,7 +135,10 @@ document.querySelector('#temp-toggle').addEventListener('change', function() {
 
         updateTemperature();
         updateForecast(forecastData);
+        dailyForecast(forecastData);
     }
+
+    
 });
 
 // Function to convert the time from Unix to human-readable time
@@ -142,6 +155,7 @@ function converTime(time, timezone) {
 }
 
 function converHour(time) {
+    
     const date = new Date((time) * 1000);
     let hours = date.getUTCHours();
     let minutes = date.getUTCMinutes();
@@ -151,6 +165,15 @@ function converHour(time) {
     minutes = minutes < 10 ? '0' + minutes : minutes; 
     const finalTime =  hours + ':' + minutes + ' ' + ampm;
     return finalTime;
+}
+
+function convertDate(dateString){
+    const ndate = new Date(dateString);
+    const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    const monthName = months[ndate.getUTCMonth()];
+    const day = ndate.getUTCDate();
+    const finalDate = monthName + ' ' + day;
+    return finalDate;
 }
 
 function updateTemperature() {
@@ -191,7 +214,7 @@ function updateTemperature() {
 
 
     const countryNameEl = document.querySelector('.country-name');
-    console.log(countryNameEl);
+    
     countryNameEl.textContent = `Weather in ${city}, ${countryName}`;
     const weatherDesc = document.querySelector('.weather-desc');
 
@@ -231,8 +254,10 @@ function updateTemperature() {
         feelsLikeEl.innerHTML += ` ${feelsLikeCelsius}°C`;
     }
 
-    // document.querySelector('#weather-info').classList.remove('hidden');
-    // document.querySelector('#hourly-forecast').classList.remove('hidden');
+    document.querySelector('#weather-info').classList.remove('hidden');
+    document.querySelector('#weather-info-right').classList.remove('hidden');
+    document.querySelector('#hourly-forecast').classList.remove('hidden');
+    
 }
 
 // 5-day forecast
@@ -240,14 +265,14 @@ async function updateForecast(forecastData) {
     const tempToggle = document.querySelector('#temp-toggle');
     let tempCelsius = 0;
     let tempFahrenheit = 0;
-    console.log(forecastData);
+ 
 
     const hourlyDiv = document.getElementById('hourly-forecast');
-    console.log(hourlyDiv);
+  
    
     // free openweathermap API only provides data after every 3 hours interval
     const  dayForecast = forecastData.list.slice(0,8 )
-    console.log(dayForecast);
+ 
 
     dayForecast.forEach((forecast) => {
         const time =  converHour(forecast.dt);
@@ -290,6 +315,89 @@ async function updateForecast(forecastData) {
 
 
     document.querySelector('#hourly-forecast').classList.remove('hidden');
+    document.getElementById('daily-forecast').classList.remove('hidden');
 }
+
+
+
+async function dailyForecast(forecastData) {
+    const tempToggle = document.querySelector('#temp-toggle');
+    let tempMinCelsius = 0;
+    let tempMinFahrenheit = 0;
+    let tempMaxCelsius = 0;
+    let tempMaxFahrenheit = 0;
+
+    console.log(forecastData);
+
+    const dailyDiv = document.getElementById('daily-forecast')
+    dailyDiv.innerHTML = '';
+
+    const dailyData = {}
+    forecastData.list.forEach((dailyItem)=>{
+        const date =  dailyItem.dt_txt.split(' ')[0];
+
+        if(!dailyData[date]) {
+            dailyData[date] = [dailyItem];
+        
+        } else{
+            dailyData[date].push(dailyItem);
+        
+        }
+    });
+
+    for ( let date in dailyData) {
+        let totalTempmin = 0
+        let totalTempmax = 0
+        let totalHumidity = 0
+
+        dailyData[date].forEach((item)=>{
+            totalTempmin += item.main.temp_min;
+            totalTempmax += item.main.temp_max;
+            totalHumidity += item.main.humidity;
+        });
+
+        const  tempmin = totalTempmin / dailyData[date].length;
+        const  tempmax = totalTempmax / dailyData[date].length;
+        const  humidity = Math.round(totalHumidity / dailyData[date].length);
+
+        tempMinCelsius = Math.round(tempmin - 273.15);
+        tempMinFahrenheit = Math.round(tempMinCelsius * 9/5) + 32;
+
+        tempMaxCelsius = Math.round(tempmax - 273.15);
+        tempMaxFahrenheit = Math.round(tempMaxCelsius * 9/5) + 32;
+
+        const newdate =  convertDate(date)
+
+        const dailyHtml = `
+        <div class="daily-item">
+           
+            <span>${newdate}</span>
+          
+            <div class="container">
+            <img src="./img/temp.png">
+            <span>${tempToggle.checked? tempMaxFahrenheit +'°F' : tempMaxCelsius +'°C'}/${tempToggle.checked? tempMinFahrenheit +'°F' : tempMinCelsius +'°C'}</span>
+            </div>
+
+            
+
+            <div class="container">
+            <img src="./img/humidity.png">
+            <span>${humidity}%</span>
+            </div>
+        </div>
+    `;
+    dailyDiv.innerHTML += dailyHtml;
+    
+
+
+    }
+  
+   
+  
+    document.querySelector('#weather-info-right').classList.remove('hidden');
+
+}
+
+
 
 
