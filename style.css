@@ -27,6 +27,11 @@ body{
     position: relative;
 }
 
+.left-side {
+    display: flex;
+    flex-direction: column;
+}
+
 .location img{
     height: 25px;
     width: 25px;
@@ -149,6 +154,8 @@ button:hover{
     margin-top: 10px;
 }
 
+
+
 .temp-toggle {
     appearance: none;
     outline: none;
@@ -198,4 +205,123 @@ button:hover{
 .feels-like, .humidity, .wind-speed, .visibility, .rise, .set {
     display: flex;
     align-items: center; 
+}
+
+.forecast-container{
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    background: rgb(182, 182, 206);
+    color: rgb(247, 242, 242);
+    padding: 20px;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 600px;
+    margin:  -20 auto 0 0;
+    justify-content: space-between;
+   
+}
+
+.forecast {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100px;
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #f7baba;
+    border-radius: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 200px;
+    flex: 0 0 auto;
+}
+#forecast-info {
+    display: flex;
+    overflow-x: auto;
+    width: 100%; /* Adjust this value to your needs */
+}
+.column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-weight: bold;
+    justify-content: center;
+    width: 150px;
+}
+
+.column img {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.column span {
+    font-size: 14px;
+}
+
+#hourly-forecast {
+    margin-top: 50px;
+    overflow-x: auto;
+    white-space: nowrap;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background: rgb(216, 216, 244);
+    border-radius: 20px;
+}
+
+.hourly-item {
+    flex: 0 0 auto;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 20px;
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 10px;
+    padding: 16px;
+    background-color: #fac9c9;
+    border-radius: 10px;
+}
+
+.hourly-item img {
+    width: 30px;
+    height: 30px;
+    margin-bottom: 5px;
+}
+
+#hourly-heading {
+    color: #fff;
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bolder;
+    text-align: center;
+    margin-right: 5px;
+}
+
+.container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 10px;
+
+}
+
+.container img{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+   
+}
+
+.hourly-item  .iconUrl{
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
 }

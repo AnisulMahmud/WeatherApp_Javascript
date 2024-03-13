@@ -8,7 +8,7 @@
 
 </head>
 <body>
-    
+    <div class="left-side">
     <div class="weather-box">
         <div id="liveTime"></div>
         <div class="searchbar">
@@ -20,8 +20,8 @@
       
         <div class="location hidden" id="weather-info">
             <div class="toggle-container">
-                <label for="temp-toggle">°F</label>
                 <input type="checkbox" id="temp-toggle" class="temp-toggle">
+                <label for="temp-toggle">°F</label>
             </div>
 
             <div class="row">
@@ -53,7 +53,21 @@
             
 
         </div>
+
+        <div id="hourly-forecast" class="hidden" ></div>
+        
+    
     </div>
+
+
+
+</div>
+
+    <div class="right-side">
+        <div class="map-container">
+            <div id="map"></div>
+            Something
+        </div>
 
 
     <script src="./index.js"></script>
