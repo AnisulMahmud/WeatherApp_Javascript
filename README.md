@@ -22,6 +22,9 @@ https://anisulmahmud.github.io/WeatherApp_Javascript/
 
 ![image](https://github.com/AnisulMahmud/WeatherApp_Javascript/assets/52384280/7ce24d64-e4c0-4ba6-860a-17a771d382b5)
 
+![image](https://github.com/AnisulMahmud/WeatherApp_Javascript/assets/52384280/85023f96-0806-411d-a42b-b60965d750e5)
+
+![image](https://github.com/AnisulMahmud/WeatherApp_Javascript/assets/52384280/6064b6b9-ec85-45cb-bcf4-e1815d12c767)
 
 #### WeatherApp Using java: 
 Moreover, A fully functional weatherApp using Java is already there, you can check this as well. https://github.com/AnisulMahmud/WeatherApp
