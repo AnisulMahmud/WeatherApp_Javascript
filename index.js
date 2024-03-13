@@ -70,7 +70,7 @@ async function forecastResponse(cityName) {
     }
 }
 
-
+// Global variables to store the weather and forecast data
 let weatherData = null;
 let forecastData = null;
 
