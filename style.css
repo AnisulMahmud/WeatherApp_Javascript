@@ -282,10 +282,11 @@ button:hover{
     flex-direction: column;
     align-items: center;
     margin-right: 20px;
+    margin-left: 5px;
     color: white;
     font-weight: bolder;
     margin-bottom: 10px;
-    padding: 16px;
+    padding: 20px;
     background-color: #fac9c9;
     border-radius: 10px;
 }
