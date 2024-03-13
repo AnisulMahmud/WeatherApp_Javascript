@@ -270,7 +270,7 @@ button:hover{
     justify-content: space-between;
     align-items: center;
     padding: 20px;
-    background: rgb(216, 216, 244);
+    /* background: rgb(216, 216, 244); */
     border-radius: 20px;
 }
 

@@ -279,7 +279,7 @@ async function updateForecast(forecastData) {
 
             <div class="container"> 
                 <img src="./img/visibility.png">
-                <span>${visiblity/1000}km</span>
+                <span>${visiblity/1000 +' km'}</span>
             </div>        
 
         </div>
