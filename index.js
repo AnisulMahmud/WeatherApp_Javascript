@@ -70,7 +70,7 @@ async function forecastResponse(cityName) {
     }
 }
 
-// Global variables to store the weather and forecast data
+
 let weatherData = null;
 let forecastData = null;
 
@@ -279,7 +279,7 @@ async function updateForecast(forecastData) {
 
             <div class="container"> 
                 <img src="./img/visibility.png">
-                <span>${visiblity/1000 +' km'}</span>
+                <span>${visiblity/1000}km</span>
             </div>        
 
         </div>
